@@ -85,6 +85,49 @@ $c->done();
 
 ## The View
 
+A 'view' is in charge of printing documents and must extends the `HttpView` class, which contains an abstract method called `getDocument()`. For example:
+
+```php
+header("Content-Type: text/plain; charset=utf-8");
+require_once "path/vendor/autoload.php";
+use mimbre\http\HttpController;
+use mimbre\http\HttpView;
+use mimbre\http\exception\HttpException;
+
+class MyController extends HttpController {
+  public $username = "";
+
+  public function __construct() {
+    $this->onGet([$this, "get"]);
+  }
+
+  // This request handler processes 'GET requests'.
+  public function get() {
+    $this->username = $this->getParam("username");
+
+    if (strlen($this->username) == 0) {
+      throw new HttpException("Username is required");
+    }
+  }
+}
+
+class MyView extends HttpView {
+  public function __construct() {
+    // The HttpView constructor accepts a controller as parameter
+    parent::__construct(new MyController());
+  }
+
+  // This abstract method must be implemented
+  public function getDocument() {
+    return "Hi there, " . $this->controller->username . "!";
+  }
+}
+
+// creates an instance and prints the document
+$view = new MyView();
+$view->printDocument();
+```
+
 ## Development notes
 
 ```bash
