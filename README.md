@@ -1,9 +1,9 @@
 # HTTP
 
-A library to process HTTP requests and to print document. This library is part of the "Mimbre Framework" and allow us to implement a **C**ontroller and a **V**iew from the [MVC design pattern](http://mvc.com). Specifically, this library contains two classes:
+A library to process HTTP requests and print document. This library is part of the "Mimbre Framework" and allow us to implement a **C**ontroller and a **V**iew from the [MVC design pattern](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller). Specifically, this library contains two classes:
 
-  * `HttpController`: The base class for any controller
-  * `HttpView`: The base class for any view
+  * `HttpController`: The base class of any controller
+  * `HttpView`: The base class of any view
   
 ## Install
 
@@ -31,7 +31,7 @@ A 'controller' must extend the `HttpController` class. It processes HTTP request
 
 ```php
 header("Content-Type: text/plain; charset=utf-8");
-require_once "../vendor/autoload.php";
+require_once "path/to/vendor/autoload.php";
 use mimbre\http\HttpController;
 
 class MyController extends HttpController {
@@ -39,6 +39,7 @@ class MyController extends HttpController {
     // registers requests handlers
     $this->onOpen([$this, "open"]);
     $this->onGet([$this, "get"]);
+    $this->on("DELETE", [$this, "delete"]);
     $this->onPost([$this, "post"]);
     $this->onClose([$this, "close"]);
   }
@@ -57,6 +58,11 @@ class MyController extends HttpController {
     echo "Processing GET request...\n";
   }
 
+  // This request handler processes 'DELETE requests'.
+  public function delete() {
+    echo "Processing DELETE request...\n";
+  }
+
   // This request handler processes 'POST requests'
   public function post() {
     $param1 = $this->getParam("param1", ["default" => "Param 1"]);
@@ -72,6 +78,7 @@ class MyController extends HttpController {
   }
 }
 
+// Creates an instance of MyController and processes the request
 $c = new MyController();
 $c->done();
 ```
