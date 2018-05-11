@@ -128,7 +128,7 @@ $view = new MyView();
 $view->printDocument();
 ```
 
-## Development notes
+## Developer notes
 
 ```bash
 # verifies that the source code conforms the current coding standards
