@@ -5,6 +5,8 @@ A library to process HTTP requests and print document. This library is part of t
   * `HttpController`: The base class of any controller
   * `HttpView`: The base class of any view
   
+For know more details visit the [Wiki pages](https://github.com/mimbre/http/wiki).
+  
 ## Install
 
 This library uses the [Composer package manager](https://getcomposer.org/). Simply execute the following command from a terminal:
