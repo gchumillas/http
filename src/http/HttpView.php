@@ -37,7 +37,7 @@ abstract class HttpView
   public function printDocument()
   {
     try {
-      $this->controller->done();
+      $this->controller->processRequest();
     } catch (HttpException $e) {
       $message = substr(preg_replace('/\s+/', ' ', $e->getMessage()), 0, 150);
       header("HTTP/1.0 400 $message");

@@ -26,7 +26,7 @@ use mimbre\http\exception\HttpException;
  *    });
  *
  *    // processes the HTTP request
- *    $c->done();
+ *    $c->processRequest();
  */
 class HttpController
 {
@@ -73,7 +73,7 @@ class HttpController
    *    $c->on("PUT", function () {
    *      echo "Processing PUT request\n";
    *    });
-   *    $c->done();
+   *    $c->processRequest();
    *
    * @param string   $method   Method name (GET, POST, PUT, etc...)
    * @param callable $listener Request listener
@@ -145,7 +145,7 @@ class HttpController
    *
    * @return void
    */
-  public function done()
+  public function processRequest()
   {
     $requestMethods = ["OPEN", $_SERVER["REQUEST_METHOD"], "CLOSE"];
 
