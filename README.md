@@ -80,7 +80,7 @@ class MyController extends HttpController {
 
 // Creates an instance of MyController and processes the request
 $c = new MyController();
-$c->done();
+$c->processRequest();
 ```
 
 ## The View
