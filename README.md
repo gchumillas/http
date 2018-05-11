@@ -14,18 +14,6 @@ This library uses the [Composer package manager](https://getcomposer.org/). Simp
 ```bash
 composer require mimbre\http
 ```
-
-Or add the following line to your `composer.json` file:
-
-```text
-{
-  ...
-  "require": {
-    ...
-    "mimbre/http-json": "^1.0"
-  }
-}
-```
   
 ## The Controller
 
