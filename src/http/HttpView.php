@@ -9,15 +9,22 @@ use mimbre\http\HttpController;
 abstract class HttpView
 {
     protected $controller;
+    private $_contentType;
+    private $_charset;
 
     /**
     * Constructor.
     *
     * @param HttpController $controller Controller
     */
-    public function __construct($controller)
-    {
+    public function __construct(
+        $controller,
+        $contentType = "text/plain; charset=utf-8",
+        $charset = "utf-8"
+    ) {
         $this->controller = $controller;
+        $this->_contentType = $contentType;
+        $this->_charset = $charset;
     }
 
     /**
@@ -36,6 +43,8 @@ abstract class HttpView
     */
     public function printDocument()
     {
+        header("Content-Type: {$this->_contentType}; {$this->_charset}");
+
         try {
             $this->controller->processRequest();
         } catch (Exception $e) {
@@ -43,7 +52,6 @@ abstract class HttpView
                 preg_replace('/\s+/', ' ', $e->getMessage()), 0, 150
             );
             header("HTTP/1.0 400 $message");
-            echo $e->getMessage();
             throw $e;
         }
 
