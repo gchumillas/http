@@ -30,7 +30,7 @@ abstract class HttpView
     /**
     * Gets the document.
     *
-    * @return mixed
+    * @return string
     */
     abstract public function getDocument();
 
