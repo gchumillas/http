@@ -1,15 +1,15 @@
 <?php
-namespace mimbre\http\data;
+namespace mimbre\http\request;
 
-class HttpSession
+class RequestSession
 {
     /**
     * Gets a session variable.
     *
     * Example:
     *
-    *    $token = HttpSession::get("token");
-    *    $username = HttpSession::get("username", ["default" => "root"]);
+    *    $token = RequestSession::get("token");
+    *    $username = RequestSession::get("username", ["default" => "root"]);
     *
     * @param string $name    Session variable name
     * @param array  $options Options
@@ -18,7 +18,7 @@ class HttpSession
     */
     public static function get($name, $options = [])
     {
-        HttpSession::_start();
+        RequestSession::_start();
 
         $default = isset($options["default"]) ? $options["default"] : null;
 
@@ -35,7 +35,7 @@ class HttpSession
     */
     public static function set($name, $value)
     {
-        HttpSession::_start();
+        RequestSession::_start();
 
         $_SESSION[$name] = $value;
     }
@@ -49,7 +49,7 @@ class HttpSession
     */
     public static function del($name)
     {
-        HttpSession::_start();
+        RequestSession::_start();
 
         unset($_SESSION[$name]);
     }

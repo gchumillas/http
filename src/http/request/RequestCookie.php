@@ -1,7 +1,7 @@
 <?php
-namespace mimbre\http\data;
+namespace mimbre\http\request;
 
-class HttpCookie
+class RequestCookie
 {
     /**
     * Gets a cookie.
@@ -9,7 +9,7 @@ class HttpCookie
     * Example:
     *
     *    // gets a cookie and returns '123' if the cookie does not exist
-    *    $token = HttpCookie::get("token", ["default" => "123"]);
+    *    $token = RequestCookie::get("token", ["default" => "123"]);
     *
     * @param string $name    Cookie name
     * @param array  $options Options (not required)
@@ -29,11 +29,11 @@ class HttpCookie
     * Example:
     *
     *    // the cookie expires in one year and its available in the root domain
-    *    HttpCookie::set("token", "123");
+    *    RequestCookie::set("token", "123");
     *
     *    // the cookie expires in 24h and it's available in /my-app folder
     *    $expireTime = 24 * 60 * 60; // the cookie expires in 24 hours
-    *    HttpCookie::set(
+    *    RequestCookie::set(
     *        "token", "123", ["expire" => $expireTime, "path" => "/my-app"]
     *    );
     *

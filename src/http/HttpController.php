@@ -1,7 +1,7 @@
 <?php
 namespace mimbre\http;
 use \InvalidArgumentException;
-use mimbre\http\data\HttpParam;
+use mimbre\http\request\RequestParam;
 
 /**
  * Processes HTTP requests and performs actions according
@@ -56,7 +56,7 @@ class HttpController
     public function getParam($name, $options = [])
     {
         $required = isset($options["required"]) ? $options["required"] : false;
-        $param = HttpParam::get($name, $options);
+        $param = RequestParam::get($name, $options);
 
         if ($required && strlen($param) == 0) {
             throw new InvalidArgumentException(

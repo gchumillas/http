@@ -1,7 +1,7 @@
 <?php
-namespace mimbre\http\data;
+namespace mimbre\http\request;
 
-class HttpParam
+class RequestParam
 {
     /**
     * Gets a parameter.
@@ -9,7 +9,7 @@ class HttpParam
     * Examples:
     *
     *    // Gets a cookie with a default value
-    *    $page = HttpParam::get("page", ["default" => "0"]);
+    *    $page = RequestParam::get("page", ["default" => "0"]);
     *
     * @param string $name    Parameter name
     * @param array  $options Options
