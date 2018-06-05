@@ -4,9 +4,9 @@ A library to process HTTP requests and print document. This library is part of t
 
   * `HttpController`: The base class of any controller
   * `HttpView`: The base class of any view
-  
+
 For know more details visit the [Wiki pages](https://github.com/mimbre/http/wiki).
-  
+
 ## Install
 
 This library uses the [Composer package manager](https://getcomposer.org/). Simply execute the following command from a terminal:
@@ -14,7 +14,7 @@ This library uses the [Composer package manager](https://getcomposer.org/). Simp
 ```bash
 composer require mimbre\http
 ```
-  
+
 ## The Controller
 
 A 'controller' must extend the `HttpController` class. It processes HTTP requests and performs the corresponding actions. For example:
@@ -82,7 +82,6 @@ header("Content-Type: text/plain; charset=utf-8");
 require_once "path/vendor/autoload.php";
 use mimbre\http\HttpController;
 use mimbre\http\HttpView;
-use mimbre\http\exception\HttpException;
 
 class MyController extends HttpController {
   public $username = "";
@@ -96,7 +95,7 @@ class MyController extends HttpController {
     $this->username = $this->getParam("username");
 
     if (strlen($this->username) == 0) {
-      throw new HttpException("Username is required");
+      throw new Exception("Username is required");
     }
   }
 }

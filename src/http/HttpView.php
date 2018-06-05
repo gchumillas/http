@@ -1,6 +1,6 @@
 <?php
 namespace mimbre\http;
-use mimbre\http\exception\HttpException;
+use \Exception;
 use mimbre\http\HttpController;
 
 /**
@@ -38,11 +38,12 @@ abstract class HttpView
     {
         try {
             $this->controller->processRequest();
-        } catch (HttpException $e) {
+        } catch (Exception $e) {
             $message = substr(
                 preg_replace('/\s+/', ' ', $e->getMessage()), 0, 150
             );
             header("HTTP/1.0 400 $message");
+            echo $e->getMessage();
             throw $e;
         }
 

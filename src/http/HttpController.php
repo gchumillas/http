@@ -1,7 +1,7 @@
 <?php
 namespace mimbre\http;
+use \InvalidArgumentException;
 use mimbre\http\data\HttpParam;
-use mimbre\http\exception\HttpException;
 
 /**
  * Processes HTTP requests and performs actions according
@@ -32,7 +32,7 @@ class HttpController
 {
     /**
     * List of listeners.
-    * 
+    *
     * @var {method: string[], callbacks[]}[]
     */
     private $_listeners = [];
@@ -59,7 +59,9 @@ class HttpController
         $param = HttpParam::get($name, $options);
 
         if ($required && strlen($param) == 0) {
-            throw new HttpException("The parameter `$name` is required");
+            throw new InvalidArgumentException(
+                "The parameter `$name` is required"
+            );
         }
 
         return $param;
