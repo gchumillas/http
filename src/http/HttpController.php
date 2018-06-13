@@ -1,7 +1,7 @@
 <?php
-namespace mimbre\http;
+namespace movicon\http;
 use \InvalidArgumentException;
-use mimbre\http\request\RequestParam;
+use movicon\http\request\RequestParam;
 
 /**
  * Processes HTTP requests and performs actions according

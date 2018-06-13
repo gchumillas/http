@@ -5,14 +5,14 @@ A library to process HTTP requests and print document. This library is part of t
   * `HttpController`: The base class of any controller
   * `HttpView`: The base class of any view
 
-For know more details visit the [Wiki pages](https://github.com/mimbre/http/wiki).
+For know more details visit the [Wiki pages](https://github.com/movicon/http/wiki).
 
 ## Install
 
 This library uses the [Composer package manager](https://getcomposer.org/). Simply execute the following command from a terminal:
 
 ```bash
-composer require mimbre\http
+composer require movicon\http
 ```
 
 ## The Controller
@@ -22,7 +22,7 @@ A 'controller' must extend the `HttpController` class. It processes HTTP request
 ```php
 header("Content-Type: text/plain; charset=utf-8");
 require_once "path/to/vendor/autoload.php";
-use mimbre\http\HttpController;
+use movicon\http\HttpController;
 
 class MyController extends HttpController {
   public function __construct() {
@@ -80,8 +80,8 @@ A 'view' is in charge of printing documents and must extends the `HttpView` clas
 ```php
 header("Content-Type: text/plain; charset=utf-8");
 require_once "path/vendor/autoload.php";
-use mimbre\http\HttpController;
-use mimbre\http\HttpView;
+use movicon\http\HttpController;
+use movicon\http\HttpView;
 
 class MyController extends HttpController {
   public $username = "";

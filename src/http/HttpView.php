@@ -1,7 +1,7 @@
 <?php
-namespace mimbre\http;
+namespace movicon\http;
 use \Exception;
-use mimbre\http\HttpController;
+use movicon\http\HttpController;
 
 /**
  * The base class for any 'view'.

@@ -1,5 +1,5 @@
 <?php
-namespace mimbre\http\request;
+namespace movicon\http\request;
 
 class RequestParam
 {

@@ -1,5 +1,5 @@
 {
-    "name": "mimbre/http",
+    "name": "movicon/http",
     "description": "A minimalist http controller.",
     "type": "php-library",
     "license": "MIT",
@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "mimbre\\": "src/"
+            "movicon\\": "src/"
         }
     }
 }
