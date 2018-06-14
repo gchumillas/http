@@ -15,7 +15,9 @@ abstract class HttpView
     /**
     * Constructor.
     *
-    * @param HttpController $controller Controller
+    * @param HttpController $controller  Controller
+    * @param string         $contentType Content-Type
+    * @param string         $charset     Charset
     */
     public function __construct(
         $controller,
