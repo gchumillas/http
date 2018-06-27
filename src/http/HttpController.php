@@ -48,6 +48,9 @@ class HttpController
     *    // The parameter `username` is required.
     *    $username = $this->get("username", ["required" => "true"]);
     *
+    *    // Do not 'trim' the parameter (defualt is 'true')
+    *    $title = $this->get("title", ["trim" => false]);
+    *
     * @param string $name    Parameter name
     * @param array  $options Options (not required)
     *
@@ -56,7 +59,12 @@ class HttpController
     public function getParam($name, $options = [])
     {
         $required = isset($options["required"]) ? $options["required"] : false;
+        $trim = isset($options["trim"]) ? $options["trim"] : true;
         $param = RequestParam::get($name, $options);
+
+        if ($trim) {
+            $param = trim($param);
+        }
 
         if ($required && strlen($param) == 0) {
             throw new InvalidArgumentException(
